@@ -62,7 +62,7 @@ A fully-featured, Flutter-based mobile application that leverages the Fakestore 
 ## 🛠 Tech Stack
 
 - **Frontend:** Flutter Framework
-- **State Management:** Bloc
+- **State Management:** Bloc with Freezed and get_it
 - **API Integration:** HTTP package
 - **Local Database:** SQLite for offline storage
 
