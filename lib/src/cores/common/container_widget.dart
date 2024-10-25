@@ -17,7 +17,8 @@ class ContainerWidget extends StatelessWidget {
     this.margin,
     this.padding,
     this.colorsList,
-    required this.image,
+    this.image = '',
+    this.isShadow = true,
   });
 
   final double? width, height;
@@ -30,29 +31,42 @@ class ContainerWidget extends StatelessWidget {
   final EdgeInsetsGeometry? margin, padding;
   final List<Color>? colorsList;
   final String image;
+  final bool isShadow;
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
       width: width ?? size.width,
-      height: height ?? size.height,
+      height: height,
       alignment: alignment ?? Alignment.topRight,
       margin: isMargin == true ? margin : const EdgeInsets.all(0),
       padding: isPadding == true ? padding : const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: borderRadius ?? BorderRadius.circular(20),
-        image: DecorationImage(
-            image: CachedNetworkImageProvider(image), fit: BoxFit.fill),
-        boxShadow: [
-          BoxShadow(
-              offset: const Offset(-2, 2),
-              blurRadius: 5,
-              color: Colors.grey.withOpacity(.5))
-        ],
-        color: color ?? Theme.of(context).scaffoldBackgroundColor,
-        border: border ?? Border.all(width: 0, color: Colors.transparent),
-      ),
+      decoration: image == ''
+          ? BoxDecoration(
+              borderRadius: borderRadius ?? BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                    offset: const Offset(-2, 2),
+                    blurRadius: 5,
+                    color: Colors.grey.withOpacity(.5))
+              ],
+              color: color ?? Theme.of(context).scaffoldBackgroundColor,
+              border: border ?? Border.all(width: 0, color: Colors.transparent),
+            )
+          : BoxDecoration(
+              image: DecorationImage(
+                  image: CachedNetworkImageProvider(image), fit: BoxFit.fill),
+              borderRadius: borderRadius ?? BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                    offset: const Offset(-2, 2),
+                    blurRadius: 1,
+                    color: Colors.grey.withOpacity(.5))
+              ],
+              color: color ?? Theme.of(context).scaffoldBackgroundColor,
+              border: border ?? Border.all(width: 0, color: Colors.transparent),
+            ),
       child: child,
     );
   }

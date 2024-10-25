@@ -28,6 +28,12 @@ navigate({required Widget screen, required BuildContext context}) =>
           builder: (context) => screen,
         ));
 
+toast(BuildContext context, String message) => toastification.show(
+    style: ToastificationStyle.fillColored,
+    primaryColor: Colors.purple,
+    context: context,
+    title: Text(message),
+    autoCloseDuration: const Duration(seconds: 2));
 
 // PADDINGS
 const paddingAll = EdgeInsets.all(30);

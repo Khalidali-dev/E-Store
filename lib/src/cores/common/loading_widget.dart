@@ -9,7 +9,7 @@ class LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
         child: CupertinoActivityIndicator(
-      color: AppColors.redColor,
+      color: AppColors.whiteColor,
       radius: 10,
     ));
   }

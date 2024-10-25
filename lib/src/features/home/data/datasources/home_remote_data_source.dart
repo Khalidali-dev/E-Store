@@ -5,12 +5,15 @@ class HomeRemoteDataSource {
 
   HttpApiServices services = HttpApiServices();
 
-  Future<ProductsModel> getImages() async {
+  Future<List<ProductsModel>> getProducts() async {
     final response = await services.getAPI(ApiUrls.getAllProductsURL);
+
     if (response.statusCode == 200) {
-      return ProductsModel.fromJson(json.decode(response.body));
+      final List<dynamic> data = json.decode(response.body) as List<dynamic>;
+
+      return data.map((item) => ProductsModel.fromJson(item)).toList();
     } else {
-      throw Exception('Failed to load images');
+      throw Exception('Failed to load products');
     }
   }
 }

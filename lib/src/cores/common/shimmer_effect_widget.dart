@@ -29,11 +29,14 @@ class _ShimmerEffectState extends State<ShimmerEffect>
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return ClipRect(
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, child) {
           return Container(
+            padding: padding10,
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               gradient: LinearGradient(
@@ -46,6 +49,73 @@ class _ShimmerEffectState extends State<ShimmerEffect>
                 ],
                 stops: const [0.0, 0.5, 1.0],
               ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: ContainerWidget(
+                    color: Colors.grey[300]!,
+                    colorsList: [
+                      Colors.grey[300]!,
+                      Colors.grey[100]!,
+                      Colors.grey[300]!,
+                    ],
+                    width: 100,
+                    height: 100,
+                    borderRadius: BorderRadius.circular(10),
+                    child: const SizedBox(),
+                  ),
+                ),
+                width(10),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ContainerWidget(
+                        color: Colors.grey[300]!,
+                        colorsList: [
+                          Colors.grey[300]!,
+                          Colors.grey[100]!,
+                          Colors.grey[300]!,
+                        ],
+                        height: 20,
+                        borderRadius: BorderRadius.circular(10),
+                        child: const SizedBox(),
+                      ),
+                      height(10),
+                      ContainerWidget(
+                        width: size.width * .6,
+                        color: Colors.grey[300]!,
+                        colorsList: [
+                          Colors.grey[300]!,
+                          Colors.grey[100]!,
+                          Colors.grey[300]!,
+                        ],
+                        height: 20,
+                        borderRadius: BorderRadius.circular(10),
+                        child: const SizedBox(),
+                      ),
+                      height(10),
+                      ContainerWidget(
+                        width: size.width * .4,
+                        color: Colors.grey[300]!,
+                        colorsList: [
+                          Colors.grey[300]!,
+                          Colors.grey[100]!,
+                          Colors.grey[300]!,
+                        ],
+                        height: 20,
+                        borderRadius: BorderRadius.circular(10),
+                        child: const SizedBox(),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           );
         },

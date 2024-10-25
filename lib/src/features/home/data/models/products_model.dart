@@ -6,7 +6,7 @@ part 'products_model.g.dart';
 @freezed
 class ProductsModel with _$ProductsModel {
   factory ProductsModel({
-    @Default('') String id,
+    @Default(0) int id,
     @Default('') String title,
     @Default('') String image,
     @Default('') String description,

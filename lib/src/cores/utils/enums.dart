@@ -1,1 +1,1 @@
-enum APIStatus { initial, loading, error, success }
+enum APIStatus { initial, loading, error, success, loadingMore }

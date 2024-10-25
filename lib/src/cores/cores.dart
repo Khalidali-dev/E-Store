@@ -4,3 +4,4 @@ export 'colors/app_colors.dart';
 export 'package:flutter/services.dart';
 export 'utils/utils.dart';
 export 'services/services.dart';
+export 'local_storage/local_storage.dart';

@@ -7,7 +7,7 @@ class HttpService {
     final url = Uri.parse(ApiUrls.baseUrl + endpoint);
     try {
       final response = await http.get(url).timeout(const Duration(seconds: 30));
-      log("GET response: ${response.body}");
+      // log("GET response: ${response.body}");
       return response;
     } catch (e) {
       log("GET request error: $e");

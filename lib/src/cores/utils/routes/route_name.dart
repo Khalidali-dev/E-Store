@@ -1,4 +1,4 @@
 class RouteName {
-  static const internetConnection = "/";
   static const home = "/home";
+  static const checkOut = "/checkOut";
 }
